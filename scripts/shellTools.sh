@@ -430,11 +430,11 @@ function compilerSharedFlag {
     esac
 }
 
-function compilerPthreadFlags {
+function compilerPthreadFlag {
     command echo "-lpthread"
 }
 
-function compilerOpenMPFlags {
+function compilerOpenMPFlag {
     local vendor=$(compilerVendor $1)
 
     case "$vendor" in
@@ -462,7 +462,7 @@ function fCompilerModuleDirFlag {
 function compilerSupportsOpenMP {
     local compiler="$1"
     local vendor=$(compilerVendor "${compiler}")
-    local ompFlag=$(compilerOpenMPFlags "${compiler}")
+    local ompFlag=$(compilerOpenMPFlag "${compiler}")
 
     local filename="${OCCA_DIR}"/scripts/openmpTest.cpp
     local binary="${OCCA_DIR}"/scripts/openmpTest
